@@ -1,1 +1,21 @@
-hi
+# OCTreeTrimming
+
+Reference-based tree-service site localized for Orange County, CA.
+
+## Files
+
+- `index.html` - OCTreeTrimming homepage
+- `styles.css` - visual styling
+- `scripts/scrape_and_adapt.py` - scraper + adaptation script
+- `scraped_text/reference/` - raw extracted text from remartintree.com
+- `scraped_text/octreetrimming/` - adapted text for OCTreeTrimming
+- `scraped_text/ALL_TEXT_REFERENCE.txt` - full raw merged text
+- `scraped_text/ALL_TEXT_OCTREETRIMMING.txt` - full adapted merged text
+
+## Re-run Scrape and Adapt
+
+```bash
+python3 scripts/scrape_and_adapt.py
+```
+
+This pulls all pages from the source sitemap, extracts visible text, and writes both reference and Orange County adapted outputs.
