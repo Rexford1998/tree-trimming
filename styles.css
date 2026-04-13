@@ -119,8 +119,37 @@ body {
 }
 
 .hero {
-  padding: 6.2rem 0 4.4rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6.2rem 2rem 4.4rem;
   animation: rise 0.6s ease;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      110deg,
+      rgba(16, 35, 22, 0.78) 0%,
+      rgba(16, 35, 22, 0.58) 52%,
+      rgba(16, 35, 22, 0.44) 100%
+    ),
+    url("images/hero/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.18), transparent 42%);
+  z-index: -1;
 }
 
 .eyebrow {
@@ -128,12 +157,12 @@ body {
   text-transform: uppercase;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
-  color: #14532d;
+  color: #f3fff6;
   font-weight: 700;
-  border: 1px solid #9ac8ad;
+  border: 1px solid rgba(217, 240, 224, 0.7);
   border-radius: 999px;
   padding: 0.42rem 0.65rem;
-  background: #edf8f1;
+  background: rgba(13, 30, 20, 0.45);
 }
 
 h1,
@@ -149,11 +178,12 @@ h1 {
   margin: 1rem 0 0.8rem;
   font-size: clamp(2rem, 5vw, 4rem);
   max-width: 12ch;
+  color: #f7fffa;
 }
 
 .lead {
   max-width: 62ch;
-  color: var(--muted);
+  color: rgba(246, 255, 250, 0.9);
   font-size: clamp(1rem, 1.2vw, 1.15rem);
 }
 
@@ -186,6 +216,12 @@ h1 {
   color: var(--ink);
   border: 1px solid var(--line);
   background: #fffef9;
+}
+
+.hero .btn-outline {
+  color: #f5fff8;
+  border-color: rgba(232, 248, 237, 0.7);
+  background: rgba(13, 30, 20, 0.35);
 }
 
 .section {
@@ -392,7 +428,7 @@ h1 {
 
 @media (max-width: 560px) {
   .hero {
-    padding-top: 4.5rem;
+    padding: 4.5rem 1.1rem 3rem;
   }
 
   .hero-actions {
